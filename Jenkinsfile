@@ -2,17 +2,17 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "techtalkjervin/social-app"
+        DOCKER_IMAGE = "ashwin211204/social-app"
         DOCKER_TAG = "latest"
-        DOCKER_CREDENTIALS_ID = "docker-cred"
-        GITHUB_CREDENTIALS_ID = "github-credentials"
+        DOCKER_CREDENTIALS_ID = "docker-hub"
+        GITHUB_CREDENTIALS_ID = "git"
         KUBECONFIG = "/var/lib/jenkins/.kube/config"
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git credentialsId: GITHUB_CREDENTIALS_ID, url: 'https://github.com/Jervinjeno/spring-framework.git', branch: 'main'
+                git credentialsId: GITHUB_CREDENTIALS_ID, url: 'https://github.com/veluashwin/task-5.git', branch: 'main'
             }
         }
 
